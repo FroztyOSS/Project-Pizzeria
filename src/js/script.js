@@ -183,7 +183,7 @@
             // check if the option is not default
             if(!option.default) {
               // add option price to price variable
-              price =+ option.price;
+              price += option.price;
             }
             
             // check if the option is default
@@ -258,7 +258,7 @@
         thisWidget.value = newValue;
       }
 
-
+      thisWidget.input.value = thisWidget.value;
 
     }
 
