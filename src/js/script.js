@@ -425,7 +425,7 @@
       
       thisCart.dom.productList.appendChild(generatedDOM);
 
-      thisCart.products.push(menuProduct);
+      thisCart.products.push(new CartProduct(menuProduct, generatedDOM));
       console.log('thisCart', thisCart.products);
 
     }
@@ -449,7 +449,7 @@
       thisCartProduct.params = menuProduct.params;
 
       thisCartProduct.getElements(element);
-      console.log('thisCartProduct', CartProduct);
+      console.log('thisCartProduct', thisCartProduct);
 
     }
     
