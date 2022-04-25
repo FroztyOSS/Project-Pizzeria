@@ -1,5 +1,4 @@
 export const select = {
-
   templateOf: {
     menuProduct: '#template-menu-product',
     cartProduct: '#template-cart-product', // CODE ADDED
@@ -39,14 +38,6 @@ export const select = {
       input: 'input[type="range"]',
       output: '.output',
     },
-    booking: {
-      peopleAmount: '.people-amount',
-      hoursAmount: '.hours-amount',
-      tables: '.floor-plan .table',
-    },
-    nav: {
-      links: '.main-nav a',
-    },
   },
   // CODE ADDED START
   cart: {
@@ -67,7 +58,15 @@ export const select = {
     edit: '[href="#edit"]',
     remove: '[href="#remove"]',
   },
-// CODE ADDED END
+  booking: {
+    peopleAmount: '.people-amount',
+    hoursAmount: '.hours-amount',
+    tables: '.floor-plan .table',
+  },
+  nav: {
+    links: '.main-nav a',
+  },
+  // CODE ADDED END
 };
 
 export const classNames = {
@@ -75,7 +74,6 @@ export const classNames = {
     wrapperActive: 'active',
     imageVisible: 'active',
   },
-  // CODE ADDED START
   cart: {
     wrapperActive: 'active',
   },
@@ -89,17 +87,27 @@ export const classNames = {
   pages: {
     active: 'active',
   }
-// CODE ADDED END
 };
+
 export const settings = {
   amountWidget: {
     defaultValue: 1,
     defaultMin: 1,
     defaultMax: 9,
-  }, // CODE CHANGED
-  // CODE ADDED START
+  },
   cart: {
     defaultDeliveryFee: 20,
+  },
+  db: {
+    url: '//localhost:3131',
+    products: 'products',
+    orders: 'orders',
+    booking: 'bookings',
+    event: 'events',
+    dateStartParamKey: 'date_gte',
+    dateEndParamKey: 'date_lte',
+    notRepeatParam: 'repeat=false',
+    repeatParam: 'repeat_ne=false',
   },
   hours: {
     open: 12,
@@ -111,26 +119,13 @@ export const settings = {
   booking: {
     tableIdAttribute: 'data-table',
   },
-  // CODE ADDED END
-
-  db: {
-    url: '//localhost:3131',
-    products: 'products',
-    orders: 'orders',
-    booking: 'booking',
-    event: 'event',
-    dateStartParamKey: 'date_gte',
-    dateEndParamKey: 'date_lte',
-    notRepeatParam: 'repeat=false',
-    repeatParam: 'repeat_ne=false',
-  },
-
+  
 };
 
 export const templates = {
   menuProduct: Handlebars.compile(document.querySelector(select.templateOf.menuProduct).innerHTML),
   // CODE ADDED START
   cartProduct: Handlebars.compile(document.querySelector(select.templateOf.cartProduct).innerHTML),
-  // CODE ADDED END
   bookingWidget: Handlebars.compile(document.querySelector(select.templateOf.bookingWidget).innerHTML),
+  // CODE ADDED END
 };
