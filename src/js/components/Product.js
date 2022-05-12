@@ -162,6 +162,9 @@ class Product {
 
     thisProduct.priceSingle = price;
     // update calculated price in the HTML
+
+    price = price * thisProduct.amountWidget.value;
+
     thisProduct.priceElem.innerHTML = price;
   }
 
