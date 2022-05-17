@@ -173,7 +173,11 @@ class Booking{
     thisBooking.dom.hoursAmount = document.querySelector(select.booking.hoursAmount);
     thisBooking.dom.datePicker = document.querySelector(select.widgets.datePicker.wrapper);
     thisBooking.dom.hourPicker = document.querySelector(select.widgets.hourPicker.wrapper);
+    thisBooking.dom.tablesWrapper = thisBooking.dom.wrapper.querySelector(select.booking.tablesWrapper);
     thisBooking.dom.tables = thisBooking.dom.wrapper.querySelectorAll(select.booking.tables);
+    thisBooking.dom.tableSubmit = thisBooking.dom.wrapper.querySelector(select.booking.submit);
+    thisBooking.dom.phone = thisBooking.dom.wrapper.querySelector(select.cart.phone);
+    thisBooking.dom.address = thisBooking.dom.wrapper.querySelector(select.cart.address);
   }
 
   initWidgets(){
@@ -187,9 +191,16 @@ class Booking{
     thisBooking.dom.peopleAmount.addEventListener('click', function(){});
     thisBooking.dom.hoursAmount.addEventListener('click', function(){});
 
-    thisBooking.dom.wrapper.addEventListener('updated', function(event){
-      thisBooking.updateDOM();
+    thisBooking.dom.tablesWrapper.addEventListener('click', function(event){
       thisBooking.initTables(event);
+    });
+
+    thisBooking.dom.wrapper.addEventListener('updated', function(){
+      thisBooking.updateDOM();
+    });
+    thisBooking.dom.tableSubmit.addEventListener('click', function(event){
+      event.preventDefault();
+      thisBooking.sendBooking();
     });
   }
   initTables(event){

@@ -4,10 +4,22 @@ import {settings, select, classNames} from './settings.js';
 import Product from './components/Product.js';
 import Cart from './components/Cart.js';
 import Booking from './components/Booking.js';
+import Home from './components/Home.js';
 
 
 
 const app = {
+
+
+  initHome: function(){
+    const thisApp = this;
+
+    const homeWidget = document.querySelector(select.containerOf.home);
+
+    thisApp.widget = new Home(homeWidget);
+
+
+  },
 
   initBooking: function(){
     const thisApp = this;
@@ -151,6 +163,7 @@ const app = {
     thisApp.initCart();
     thisApp.initPages();
     thisApp.initBooking();
+    thisApp.initHome();
 
 
   },
