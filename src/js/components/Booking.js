@@ -215,7 +215,7 @@ class Booking{
     }
 
     if(clickedTable.classList.contains(classNames.booking.tableBooked)){
-      alert('This table is not available');
+      alert('Stolik zajęty');
     }
 
     for(let table of thisBooking.dom.tables){
