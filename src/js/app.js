@@ -33,6 +33,7 @@ const app = {
   initPages: function(){
     const thisApp = this;
 
+    thisApp.homeOrder = document.querySelector(select.nav.homeOrder);
     thisApp.pages = document.querySelector(select.containerOf.pages).children;
     thisApp.navLinks = document.querySelectorAll(select.nav.links);
 
