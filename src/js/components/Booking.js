@@ -198,7 +198,7 @@ class Booking{
     thisBooking.dom.wrapper.addEventListener('updated', function(){
       thisBooking.updateDOM();
     });
-    thisBooking.dom.tableSubmit.addEventListener('click', function(event){
+    thisBooking.dom.tableSubmit.addEventListener('submit', function(event){
       event.preventDefault();
       thisBooking.sendBooking();
     });
