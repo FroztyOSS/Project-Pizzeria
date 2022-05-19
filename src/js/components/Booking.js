@@ -178,6 +178,7 @@ class Booking{
     thisBooking.dom.tableSubmit = thisBooking.dom.wrapper.querySelector(select.booking.submit);
     thisBooking.dom.phone = thisBooking.dom.wrapper.querySelector(select.cart.phone);
     thisBooking.dom.address = thisBooking.dom.wrapper.querySelector(select.cart.address);
+    thisBooking.dom.starters = thisBooking.dom.wrapper.querySelectorAll(select.booking.starters);
   }
 
   initWidgets(){
@@ -198,7 +199,7 @@ class Booking{
     thisBooking.dom.wrapper.addEventListener('updated', function(){
       thisBooking.updateDOM();
     });
-    thisBooking.dom.tableSubmit.addEventListener('submit', function(event){
+    thisBooking.dom.tableSubmit.addEventListener('click', function(event){
       event.preventDefault();
       thisBooking.sendBooking();
     });
@@ -243,18 +244,22 @@ class Booking{
 
     const payload = {};
 
-    payload.date = thisBooking.datePicker.alue;
+    payload.date = thisBooking.datePicker.value;
     payload.hour = thisBooking.hourPicker.value;
     payload.table = thisBooking.selectedTable;
     payload.duration = thisBooking.hoursAmount.value;
     payload.ppl = thisBooking.peopleAmount.value;
     payload.phone = thisBooking.dom.phone.value;
-    payload.address = thisBooking.dom.ad.value;
+    payload.address = thisBooking.dom.address.value;
     payload.starters = [];
+
 
     for(let starter of thisBooking.dom.starters) {
       payload.starters.push(starter.value);
     }
+  
+    console.log('payload', payload);
+
 
     const options = {
       method: 'POST',
